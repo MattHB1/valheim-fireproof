@@ -1,6 +1,6 @@
 # Fireproof
 
-Sick of walking around on fire? This turns off all burning for you, no matter where it comes from.
+Sick of walking around on fire? This turns off burning and fire damage for you - hearths, campfires, enemies, the lot. Also skips the smoke cough from standing in fire smoke.
 
 ## Install
 
@@ -13,8 +13,12 @@ Manual install: put `Fireproof.dll` in `BepInEx/plugins/` (requires [BepInExPack
 ## Notes
 
 - Only affects you — friends still burn unless they install it too.
-- Doesn't touch other status effects.
+- Doesn't touch cold, wet, poison, and the rest.
 - Other mods: [DevDonkey on Thunderstore](https://thunderstore.io/c/valheim/p/DevDonkey/)
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
 
 ## Build
 

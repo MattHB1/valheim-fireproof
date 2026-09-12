@@ -17,9 +17,11 @@ $PluginCs = Join-Path $RepoRoot "Fireproof\Fireproof.cs"
 $OutDll = Join-Path $RepoRoot "Fireproof\bin\Release\net4.8\Fireproof.dll"
 $Icon = Join-Path $RepoRoot "resources\icon.png"
 $PackageReadme = Join-Path $RepoRoot "publish\README.md"
+$Changelog = Join-Path $RepoRoot "CHANGELOG.md"
 
 if (-not (Test-Path $Icon)) { throw "Missing Thunderstore icon: $Icon (256x256 PNG)" }
 if (-not (Test-Path $PackageReadme)) { throw "Missing package README: $PackageReadme" }
+if (-not (Test-Path $Changelog)) { throw "Missing changelog: $Changelog" }
 
 $versionLine = Select-String -Path $PluginCs -Pattern 'public const string VERSION = "([^"]+)"' | Select-Object -First 1
 if (-not $versionLine) { throw "Could not parse VERSION from Fireproof.cs" }
@@ -45,13 +47,14 @@ $TsPlugins = Join-Path $Ts "BepInEx\plugins"
 New-Item -ItemType Directory -Force -Path $TsPlugins | Out-Null
 Copy-Item $Icon (Join-Path $Ts "icon.png") -Force
 Copy-Item $PackageReadme (Join-Path $Ts "README.md") -Force
+Copy-Item $Changelog (Join-Path $Ts "CHANGELOG.md") -Force
 Copy-Item $OutDll (Join-Path $TsPlugins "Fireproof.dll") -Force
 
 $manifest = @{
   name            = "Fireproof"
   version_number  = $Version
   website_url     = "https://github.com/MattHB1/valheim-fireproof"
-  description     = "Turns off all burning for you, from any source in the game."
+  description     = "Turns off burning and fire damage for you - hearths, campfires, the lot."
   dependencies    = @("denikson-BepInExPack_Valheim-5.4.2350")
 } | ConvertTo-Json -Depth 5
 # Thunderstore expects UTF-8 without BOM-ish; .NET often writes BOM - strip if present
@@ -72,7 +75,7 @@ Write-Host "(or drag the zip into the Thunderstore / r2modman upload UI)"
 if ($GitHubRelease) {
   $tag = "v$Version"
   $dllAsset = Join-Path $ReleaseDir "Fireproof.dll"
-  $notes = "Turns off all burning for you, from any source. Install via Thunderstore/r2modman when published, or drop Fireproof.dll into BepInEx/plugins."
+  $notes = "Turns off burning and fire damage for you - hearths, campfires, the lot. Install via Thunderstore/r2modman when published, or drop Fireproof.dll into BepInEx/plugins."
   gh release view $tag -R MattHB1/valheim-fireproof 2>$null
   if ($LASTEXITCODE -eq 0) {
     Write-Host "GitHub release $tag already exists; uploading assets..."
