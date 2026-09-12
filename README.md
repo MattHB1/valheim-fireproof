@@ -14,6 +14,7 @@ Manual install: put `Fireproof.dll` in `BepInEx/plugins/` (requires [BepInExPack
 
 - Only affects you — friends still burn unless they install it too.
 - Doesn't touch other status effects.
+- Other mods: [DevDonkey on Thunderstore](https://thunderstore.io/c/valheim/p/DevDonkey/)
 
 ## Build
 

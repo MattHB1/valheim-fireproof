@@ -14,3 +14,4 @@ Or manually: put `Fireproof.dll` in `BepInEx/plugins/`.
 
 - Only affects you — friends still burn unless they install it too.
 - Source: [github.com/MattHB1/valheim-fireproof](https://github.com/MattHB1/valheim-fireproof)
+- Other mods: [DevDonkey on Thunderstore](https://thunderstore.io/c/valheim/p/DevDonkey/)
