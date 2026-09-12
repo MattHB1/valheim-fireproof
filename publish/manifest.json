@@ -1,0 +1,9 @@
+{
+  "name": "Fireproof",
+  "version_number": "1.0.0",
+  "website_url": "https://github.com/MattHB1/valheim-fireproof",
+  "description": "Turns off all burning for you, from any source in the game.",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2350"
+  ]
+}
