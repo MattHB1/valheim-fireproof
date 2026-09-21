@@ -18,7 +18,8 @@ internal static class BlockFireApplyDamagePatch
 
     if (hit.m_hitType == HitData.HitType.Burning
         || hit.m_hitType == HitData.HitType.CinderFire
-        || hit.m_hitType == HitData.HitType.Smoke)
+        || hit.m_hitType == HitData.HitType.Smoke
+        || hit.m_hitType == HitData.HitType.AshlandsOcean)
       return false;
 
     // Fireplace AoEs: no attacker, fire bundled with chop/pickaxe → grey numbers + mining SFX
@@ -71,5 +72,50 @@ internal static class BlockFireAoePatch
       return false;
 
     return true;
+  }
+}
+
+/// <summary>
+/// Ashlands lava uses a heat meter (not hearth fire HitData). Clear it and skip the
+/// damage tick so walking on lava is actually fireproof.
+/// </summary>
+[HarmonyPatch(typeof(Character), "UpdateLava")]
+internal static class BlockLavaUpdatePatch
+{
+  private static bool Prefix(
+    Character __instance,
+    ref float ___m_lavaHeatLevel,
+    ref float ___m_lavaProximity,
+    ref float ___m_lavaHeightFactor)
+  {
+    var local = Player.m_localPlayer;
+    if (!local || __instance != local) return true;
+
+    ___m_lavaHeatLevel = 0f;
+    ___m_lavaProximity = 0f;
+    ___m_lavaHeightFactor = 0f;
+    return false;
+  }
+}
+
+[HarmonyPatch(typeof(Character), "UpdateAshlandsWater")]
+internal static class BlockAshlandsWaterPatch
+{
+  private static bool Prefix(Character __instance)
+  {
+    var local = Player.m_localPlayer;
+    if (!local || __instance != local) return true;
+    return false;
+  }
+}
+
+[HarmonyPatch(typeof(Character), "UpdateHeatDamage")]
+internal static class BlockHeatDamagePatch
+{
+  private static bool Prefix(Character __instance)
+  {
+    var local = Player.m_localPlayer;
+    if (!local || __instance != local) return true;
+    return false;
   }
 }

@@ -1,8 +1,8 @@
 {
   "name": "Fireproof",
-  "version_number": "1.0.1",
+  "version_number": "1.0.2",
   "website_url": "https://github.com/MattHB1/valheim-fireproof",
-  "description": "Turns off burning and fire damage for you - hearths, campfires, the lot.",
+  "description": "No more fire damage from any part of the game! Walk on Lava (at full speed), no more fire damage from Fader (a nice rebalance)",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.2350"
   ]

@@ -8,11 +8,11 @@ public class Fireproof : BaseUnityPlugin
 {
   public const string GUID = "matthb1.fireproof";
   public const string NAME = "Fireproof";
-  public const string VERSION = "1.0.1";
+  public const string VERSION = "1.0.2";
 
   private void Awake()
   {
-    Logger.LogInfo($"{NAME} {VERSION} loaded - blocking fire damage and Burning on local player.");
+    Logger.LogInfo($"{NAME} {VERSION} loaded - blocking fire, lava, and Burning on local player.");
     new Harmony(GUID).PatchAll();
   }
 

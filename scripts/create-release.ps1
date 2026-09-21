@@ -54,7 +54,7 @@ $manifest = @{
   name            = "Fireproof"
   version_number  = $Version
   website_url     = "https://github.com/MattHB1/valheim-fireproof"
-  description     = "Turns off burning and fire damage for you - hearths, campfires, the lot."
+  description     = "Turns off burning and fire damage for you - hearths, campfires, lava, the lot."
   dependencies    = @("denikson-BepInExPack_Valheim-5.4.2350")
 } | ConvertTo-Json -Depth 5
 # Thunderstore expects UTF-8 without BOM-ish; .NET often writes BOM - strip if present
@@ -75,7 +75,7 @@ Write-Host "(or drag the zip into the Thunderstore / r2modman upload UI)"
 if ($GitHubRelease) {
   $tag = "v$Version"
   $dllAsset = Join-Path $ReleaseDir "Fireproof.dll"
-  $notes = "Turns off burning and fire damage for you - hearths, campfires, the lot. Install via Thunderstore/r2modman when published, or drop Fireproof.dll into BepInEx/plugins."
+  $notes = "Turns off burning and fire damage for you - hearths, campfires, lava, the lot. Install via Thunderstore/r2modman when published, or drop Fireproof.dll into BepInEx/plugins."
   gh release view $tag -R MattHB1/valheim-fireproof 2>$null
   if ($LASTEXITCODE -eq 0) {
     Write-Host "GitHub release $tag already exists; uploading assets..."

@@ -1,6 +1,6 @@
 # Fireproof
 
-Sick of walking around on fire? This turns off burning and fire damage for you - hearths, campfires, enemies, the lot. Also skips the smoke cough from standing in fire smoke.
+Sick of walking around on fire? This turns off burning and fire damage for you - hearths, campfires, lava, enemies, the lot. Also skips the smoke cough from standing in fire smoke.
 
 ## Install
 

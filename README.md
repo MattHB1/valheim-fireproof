@@ -1,6 +1,8 @@
 # Fireproof
 
-Sick of walking around on fire? This turns off burning and fire damage for you - hearths, campfires, enemies, the lot. Also skips the smoke cough from standing in fire smoke.
+Turns off burning and fire damage for you from everywhere in the game - fire attacks (including Fader and Kall), stepping on camp fires by accident, walking around on LAVA, the lot. Also avoids the smoke cough from standing in fire smoke.
+
+This also removes the slow effect from walking in lava.
 
 ## Install
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+- Fireproofs Ashlands lava (heat meter, lava HP ticks, and the lava slow)
+
 ## 1.0.1
 
 - Also blocks the leftover HP ticks from standing on hearths / campfires
